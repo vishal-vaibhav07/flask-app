@@ -1,0 +1,31 @@
+<!--Update Details HTML Template-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <h2>Update Student Details</h2>
+        <form action="/update/{{ college.sno }}" method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Student Name</label>
+                <input type="text" class="form-control" name="title" id="title" value="{{ college.title }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="desc" class="form-label">Department</label>
+                <input type="text" class="form-control" name="desc" id="desc" value="{{ college.desc }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="reg_no" class="form-label">Registration Number</label>
+                <input type="text" class="form-control" name="reg_no" id="reg_no" value="{{ college.reg_no }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="/" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
