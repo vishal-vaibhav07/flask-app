@@ -53,7 +53,11 @@ def delete(sno):
     db.session.delete(allstu)
     db.session.commit()
     return redirect('/')
-
+@app.route('/about')
+def about():
+    #allstu= College.query.all()
+    #print(allstu)
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=7000)
