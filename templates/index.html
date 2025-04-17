@@ -67,6 +67,9 @@
 
     <div class="container my-5">
       <h2>Student List</h2>
+      {% if search_query %}
+        <p>Showing results for: <strong>{{ search_query }}</strong></p>
+      {% endif %}
       <table class="table">
         <thead>
           <tr>

@@ -59,5 +59,13 @@ def about():
     #print(allstu)
     return render_template('about.html')
 
+@app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('query')
+    results = College.query.filter(
+        (College.title.ilike(f"%{query}%")) | (College.reg_no.ilike(f"%{query}%"))
+    ).all()
+    return render_template('index.html', allstu=results, search_query=query)
+
 if __name__ == '__main__':
     app.run(debug=True, port=7000)
