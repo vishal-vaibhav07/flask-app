@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fees Structure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-50 min-h-screen">
+    <nav class="bg-blue-700">
+        <div class="container mx-auto flex flex-wrap items-center justify-between py-3">
+            <a class="text-white text-xl font-bold" href="/">College Management System</a>
+            <div>
+                <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/courses">Courses</a>
+                <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/about">About</a>
+                <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto my-12 px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Fees Structure</h2>
+        {% if course %}
+        <div class="max-w-xl mx-auto mb-8 bg-white rounded shadow p-6">
+            <h3 class="text-xl font-semibold mb-4 text-blue-700">Fees for {{ course }}</h3>
+            <table class="min-w-full bg-white rounded shadow">
+                <thead>
+                    <tr class="bg-blue-100 text-blue-800">
+                        <th class="px-4 py-2 text-left">Course</th>
+                        <th class="px-4 py-2 text-left">Duration</th>
+                        <th class="px-4 py-2 text-left">Tution Fees (Per Annum)</th>
+                        <th class="px-4 py-2 text-left">Registration Fees</th>
+                        <th class="px-4 py-2 text-left">Total Fees</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if course == "B.Tech" %}
+                    <tr>
+                        <td class="px-4 py-2">B.Tech</td>
+                        <td class="px-4 py-2">4 Years</td>
+                        <td class="px-4 py-2">₹100000</td>
+                        <td class="px-4 py-2">₹10000</td>
+                        <td class="px-4 py-2">₹410000</td>
+                    </tr>
+                    {% elif course == "BCA" %}
+                    <tr>
+                        <td class="px-4 py-2">BCA</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹70000</td>
+                        <td class="px-4 py-2">₹5000</td>
+                        <td class="px-4 py-2">₹215000</td>
+                    </tr>
+                    {% elif course == "BBA" %}
+                    <tr>
+                        <td class="px-4 py-2">BBA</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹70000</td>
+                        <td class="px-4 py-2">₹5000</td>
+                        <td class="px-4 py-2">₹215000</td>
+                    </tr>
+                    {% elif course == "B.Sc Mathematics" %}
+                    <tr>
+                        <td class="px-4 py-2">B.Sc Mathematics</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹35000</td>
+                        <td class="px-4 py-2">₹5000</td>
+                        <td class="px-4 py-2">₹110000</td> 
+                    </tr>
+                    {% elif course == "B.Sc Physics" %}
+                    <tr>
+                        <td class="px-4 py-2">B.Sc Physics</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹80000</td>
+                        <td class="px-4 py-2">₹5000</td>
+                        <td class="px-4 py-2">₹245000</td>
+                    </tr>
+                    {% elif course == "B.Sc Chemistry" %}
+                    <tr>
+                        <td class="px-4 py-2">B.Sc Chemistry</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹80000</td>
+                        <td class="px-4 py-2">₹5000</td>
+                        <td class="px-4 py-2">₹245000</td>
+                    </tr>
+                    {% elif course == "B.Com" %}
+                    <tr>
+                        <td class="px-4 py-2">B.Com</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹50000</td>
+                        <td class="px-4 py-2">₹5000</td>
+                        <td class="px-4 py-2">₹155000</td>
+                    </tr>
+                    {% elif course == "B.A (English)" %}
+                    <tr>
+                        <td class="px-4 py-2">B.A (English)</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹30000</td>
+                        <td class="px-4 py-2">₹5000</td>
+                        <td class="px-4 py-2">₹95000</td>
+                    </tr>
+                    {% elif course == "M.Tech" %}
+                    <tr>
+                        <td class="px-4 py-2">M.Tech</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹180000</td>
+                        <td class="px-4 py-2">₹10000</td>
+                        <td class="px-4 py-2">₹460000</td>
+                    </tr>
+                    {% elif course == "MCA" %}
+                    <tr>
+                        <td class="px-4 py-2">MCA</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹100000</td>
+                        <td class="px-4 py-2">₹10000</td>
+                        <td class="px-4 py-2">₹220000</td>
+                    </tr>
+                    {% elif course == "MBA" %}
+                    <tr>
+                        <td class="px-4 py-2">MBA</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹150000</td>
+                        <td class="px-4 py-2">₹10000</td>
+                        <td class="px-4 py-2">₹370000</td>
+                    </tr>
+                    {% elif course == "M.Sc Mathematics" %}
+                    <tr>
+                        <td class="px-4 py-2">M.Sc Mathematics</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹90000</td>
+                        <td class="px-4 py-2">₹10000</td>
+                        <td class="px-4 py-2">₹220000</td>
+                    </tr>
+                    {% elif course == "M.Sc Physics" %}
+                    <tr>
+                        <td class="px-4 py-2">M.Sc Physics</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹90000</td>
+                        <td class="px-4 py-2">₹10000</td>
+                        <td class="px-4 py-2">₹220000</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td class="px-4 py-2" colspan="3">No fee details available for this course.</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="max-w-xl mx-auto mb-8 bg-white rounded shadow p-6">
+            <h3 class="text-xl font-semibold mb-4 text-blue-700">All Courses Fees</h3>
+            <table class="min-w-full bg-white rounded shadow">
+                <thead>
+                    <tr class="bg-blue-100 text-blue-800">
+                        <th class="px-4 py-2 text-left">Course</th>
+                        <th class="px-4 py-2 text-left">Duration</th>
+                        <th class="px-4 py-2 text-left">Annual Fees (INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="px-4 py-2">B.Tech</td>
+                        <td class="px-4 py-2">4 Years</td>
+                        <td class="px-4 py-2">₹ 80,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">BCA</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹ 45,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">BBA</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹ 40,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">B.Sc Mathematics</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹ 35,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">B.Sc Physics</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹ 36,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">B.Sc Chemistry</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹ 36,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">B.Com</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹ 32,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">B.A (English)</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">₹ 30,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">M.Tech</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹ 90,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">MCA</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹ 60,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">MBA</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹ 85,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">M.Sc Mathematics</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹ 55,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2">M.Sc Physics</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">₹ 56,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        <div class="text-center">
+            <a href="/courses" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Back to Courses</a>
+        </div>
+    </div>
+</body>
+</html>

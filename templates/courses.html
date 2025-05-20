@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-50 min-h-screen">
+    <nav class="bg-blue-700">
+        <div class="container mx-auto flex flex-wrap items-center justify-between py-3">
+            <a class="text-white text-xl font-bold" href="/">College Management System</a>
+            <div>
+                <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/about">About</a>
+                <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto my-8 px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Courses Offered</h2>
+
+        <!-- UG Courses Table -->
+        <h4 class="text-xl font-semibold mb-3 text-blue-700">Undergraduate (UG) Courses</h4>
+        <div class="overflow-x-auto mb-8">
+            <table class="min-w-full bg-white rounded shadow">
+                <thead>
+                    <tr class="bg-blue-100 text-blue-800">
+                        <th class="px-4 py-2 text-left">Course</th>
+                        <th class="px-4 py-2 text-left">Duration</th>
+                        <th class="px-4 py-2 text-left">Eligibility</th>
+                        <th class="px-4 py-2 text-left">Fees</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">B.Tech</td>
+                        <td class="px-4 py-2">4 Years</td>
+                        <td class="px-4 py-2">10+2 with PCM</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="B.Tech">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">BCA</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">10+2 with Mathematics</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="BCA">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">BBA</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">10+2 in any stream</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="BBA">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">B.Sc Mathematics</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">10+2 with Mathematics</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="B.Sc Mathematics">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">B.Sc Physics</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">10+2 with Physics</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="B.Sc Physics">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">B.Sc Chemistry</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">10+2 with Chemistry</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="B.Sc Chemistry">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">B.Com</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">10+2 in Commerce</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="B.Com">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">B.A (English)</td>
+                        <td class="px-4 py-2">3 Years</td>
+                        <td class="px-4 py-2">10+2</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="B.A (English)">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- PG Courses Table -->
+         <h4 class="text-xl font-semibold mb-3 text-blue-700">Postgraduation (UG) Courses</h4>
+        <div class="overflow-x-auto mb-8">
+            <table class="min-w-full bg-white rounded shadow">
+                <thead>
+                    <tr class="bg-blue-100 text-blue-800">
+                        <th class="px-4 py-2 text-left">Course</th>
+                        <th class="px-4 py-2 text-left">Duration</th>
+                        <th class="px-4 py-2 text-left">Eligibility</th>
+                        <th class="px-4 py-2 text-left">Fees</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">M.Tech</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">Graduation in B.Tech or MCA</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="M.Tech">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">MCA</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">Graduation in BCA/Mathematics/Computer Science</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="MCA">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">MBA</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">Graduation in any stream</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="MBA">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">M.Sc Mathematics</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">Graduation in B.Sc Mathematics</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="M.Sc Mathematics">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">M.Sc Physics</td>
+                        <td class="px-4 py-2">2 Years</td>
+                        <td class="px-4 py-2">Graduation in B.Sc Physics</td>
+                        <td class="px-4 py-2">
+                            <form action="/fees" method="get" class="inline">
+                                <input type="hidden" name="course" value="M.Sc Physics">
+                                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition text-sm">View Fees</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

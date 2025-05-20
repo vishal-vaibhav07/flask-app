@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Faculty</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-100">
+    <div class="container mx-auto my-8">
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="mb-4">
+                {% for category, message in messages %}
+                <div class="p-4 mb-2 rounded shadow transition-all {{ 'bg-green-100 text-green-800' if category == 'success' else 'bg-red-100 text-red-800' }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <h1 class="text-3xl font-bold text-center mb-6">Faculty Management</h1>
+        
+        <!-- Faculty Form -->
+        <div class="bg-white rounded shadow p-6 mb-6 transition hover:shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">New Faculty Onboarding</h2>
+            <form action="/faculty" method="POST" class="space-y-4">
+                <div>
+                    <label for="name" class="block font-medium mb-1">Faculty Name</label>
+                    <input type="text" name="name" id="name" required
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Enter faculty name">
+                </div>
+                <div>
+                    <label for="department" class="block font-medium mb-1">Department</label>
+                    <input type="text" name="department" id="department" required
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Enter department">
+                </div>
+                <div>
+                    <label for="employee_id" class="block font-medium mb-1">Employee ID</label>
+                    <input type="text" name="employee_id" id="employee_id" required
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Enter employee ID">
+                </div>
+                <div>
+                    <label for="city" class="block font-medium mb-1">City</label>
+                    <input type="text" name="city" id="city" required
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Enter city">
+                </div>
+                <button type="submit"
+                    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Submit</button>
+            </form>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="bg-white rounded shadow p-4 mb-6 transition hover:shadow-lg">
+            <form action="/faculty" method="GET" class="flex gap-2">
+                <input type="text" name="search" class="flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Search by name" value="{{ request.args.get('search', '') }}">
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Search</button>
+            </form>
+        </div>
+
+        <!-- Faculty List -->
+        <div class="bg-white rounded shadow p-6 transition hover:shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">All Faculty Members</h2>
+            <table class="min-w-full table-auto border-collapse">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-4 py-2 text-left">Name</th>
+                        <th class="px-4 py-2 text-left">Department</th>
+                        <th class="px-4 py-2 text-left">Employee ID</th>
+                        <th class="px-4 py-2 text-left">City</th>
+                        <th class="px-4 py-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for faculty in faculty %}
+                    <tr class="hover:bg-blue-50 transition">
+                        <td class="px-4 py-2">{{ faculty.name }}</td>
+                        <td class="px-4 py-2">{{ faculty.department }}</td>
+                        <td class="px-4 py-2">{{ faculty.employee_id }}</td>
+                        <td class="px-4 py-2">{{ faculty.city }}</td>
+                        <td class="px-4 py-2 flex gap-2">
+                            <a href="/faculty/update/{{ faculty.id }}" class="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500 transition">Update</a>
+                            <a href="/faculty/delete/{{ faculty.id }}" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-6">
+            <a href="/" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 transition">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
