@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <title>Courses</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
 </head>
-<body class="bg-purple-50 min-h-screen">
-    <nav class="bg-blue-700">
+<body class="bg-purple-50 dark:bg-gray-900 min-h-screen text-gray-900 dark:text-gray-100">
+    <nav class="bg-blue-700 dark:bg-gray-800">
         <div class="container mx-auto flex flex-wrap items-center justify-between py-3">
             <a class="text-white text-xl font-bold" href="/">College Management System</a>
-            <div>
+            <div class="flex items-center gap-4">
                 <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/about">About</a>
                 <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/">Logout</a>
+                <!-- Dark mode toggle button -->
+                <button onclick="toggleDarkMode()" class="ml-2 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                    <span class="hidden dark:inline">🌞</span>
+                    <span class="dark:hidden">🌙</span>
+                </button>
             </div>
         </div>
     </nav>
     <div class="container mx-auto my-8 px-4">
-        <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Courses Offered</h2>
+        <h2 class="text-3xl font-bold text-center mb-8 text-blue-800 dark:text-blue-300">Courses Offered</h2>
 
         <!-- UG Courses Table -->
-        <h4 class="text-xl font-semibold mb-3 text-blue-700">Undergraduate (UG) Courses</h4>
+        <h4 class="text-xl font-semibold mb-3 text-blue-700 dark:text-blue-400">Undergraduate (UG) Courses</h4>
         <div class="overflow-x-auto mb-8">
-            <table class="min-w-full bg-white rounded shadow">
+            <table class="min-w-full bg-white dark:bg-gray-800 rounded shadow">
                 <thead>
-                    <tr class="bg-blue-100 text-blue-800">
+                    <tr class="bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-200">
                         <th class="px-4 py-2 text-left">Course</th>
                         <th class="px-4 py-2 text-left">Duration</th>
                         <th class="px-4 py-2 text-left">Eligibility</th>
@@ -31,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">B.Tech</td>
                         <td class="px-4 py-2">4 Years</td>
                         <td class="px-4 py-2">10+2 with PCM</td>
@@ -42,7 +53,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">BCA</td>
                         <td class="px-4 py-2">3 Years</td>
                         <td class="px-4 py-2">10+2 with Mathematics</td>
@@ -53,7 +64,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">BBA</td>
                         <td class="px-4 py-2">3 Years</td>
                         <td class="px-4 py-2">10+2 in any stream</td>
@@ -64,7 +75,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">B.Sc Mathematics</td>
                         <td class="px-4 py-2">3 Years</td>
                         <td class="px-4 py-2">10+2 with Mathematics</td>
@@ -75,7 +86,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">B.Sc Physics</td>
                         <td class="px-4 py-2">3 Years</td>
                         <td class="px-4 py-2">10+2 with Physics</td>
@@ -86,7 +97,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">B.Sc Chemistry</td>
                         <td class="px-4 py-2">3 Years</td>
                         <td class="px-4 py-2">10+2 with Chemistry</td>
@@ -97,7 +108,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">B.Com</td>
                         <td class="px-4 py-2">3 Years</td>
                         <td class="px-4 py-2">10+2 in Commerce</td>
@@ -108,7 +119,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">B.A (English)</td>
                         <td class="px-4 py-2">3 Years</td>
                         <td class="px-4 py-2">10+2</td>
@@ -123,11 +134,11 @@
             </table>
         </div>
         <!-- PG Courses Table -->
-         <h4 class="text-xl font-semibold mb-3 text-blue-700">Postgraduation (UG) Courses</h4>
+        <h4 class="text-xl font-semibold mb-3 text-blue-700 dark:text-blue-400">Postgraduation (PG) Courses</h4>
         <div class="overflow-x-auto mb-8">
-            <table class="min-w-full bg-white rounded shadow">
+            <table class="min-w-full bg-white dark:bg-gray-800 rounded shadow">
                 <thead>
-                    <tr class="bg-blue-100 text-blue-800">
+                    <tr class="bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-200">
                         <th class="px-4 py-2 text-left">Course</th>
                         <th class="px-4 py-2 text-left">Duration</th>
                         <th class="px-4 py-2 text-left">Eligibility</th>
@@ -135,7 +146,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">M.Tech</td>
                         <td class="px-4 py-2">2 Years</td>
                         <td class="px-4 py-2">Graduation in B.Tech or MCA</td>
@@ -146,7 +157,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">MCA</td>
                         <td class="px-4 py-2">2 Years</td>
                         <td class="px-4 py-2">Graduation in BCA/Mathematics/Computer Science</td>
@@ -157,7 +168,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">MBA</td>
                         <td class="px-4 py-2">2 Years</td>
                         <td class="px-4 py-2">Graduation in any stream</td>
@@ -168,7 +179,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">M.Sc Mathematics</td>
                         <td class="px-4 py-2">2 Years</td>
                         <td class="px-4 py-2">Graduation in B.Sc Mathematics</td>
@@ -179,7 +190,7 @@
                             </form>
                         </td>
                     </tr>
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-700 transition">
                         <td class="px-4 py-2">M.Sc Physics</td>
                         <td class="px-4 py-2">2 Years</td>
                         <td class="px-4 py-2">Graduation in B.Sc Physics</td>

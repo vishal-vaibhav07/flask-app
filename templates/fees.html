@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <title>Fees Structure</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
 </head>
-<body class="bg-purple-50 min-h-screen">
-    <nav class="bg-blue-700">
+<body class="bg-purple-50 dark:bg-gray-900 min-h-screen text-gray-900 dark:text-gray-100">
+    <nav class="bg-blue-700 dark:bg-gray-800">
         <div class="container mx-auto flex flex-wrap items-center justify-between py-3">
             <a class="text-white text-xl font-bold" href="/">College Management System</a>
-            <div>
+            <div class="flex items-center gap-4">
                 <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/courses">Courses</a>
                 <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/about">About</a>
                 <a class="text-white hover:text-blue-200 px-3 py-2 rounded transition" href="/">Logout</a>
+                <!-- Dark mode toggle button -->
+                <button onclick="toggleDarkMode()" class="ml-2 px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                    <span class="hidden dark:inline">🌞</span>
+                    <span class="dark:hidden">🌙</span>
+                </button>
             </div>
         </div>
     </nav>
     <div class="container mx-auto my-12 px-4">
-        <h2 class="text-3xl font-bold text-center mb-8 text-blue-800">Fees Structure</h2>
+        <h2 class="text-3xl font-bold text-center mb-8 text-blue-800 dark:text-blue-300">Fees Structure</h2>
         {% if course %}
-        <div class="max-w-xl mx-auto mb-8 bg-white rounded shadow p-6">
-            <h3 class="text-xl font-semibold mb-4 text-blue-700">Fees for {{ course }}</h3>
-            <table class="min-w-full bg-white rounded shadow">
+        <div class="max-w-xl mx-auto mb-8 bg-white dark:bg-gray-800 rounded shadow p-6">
+            <h3 class="text-xl font-semibold mb-4 text-blue-700 dark:text-blue-400">Fees for {{ course }}</h3>
+            <table class="min-w-full bg-white dark:bg-gray-800 rounded shadow">
                 <thead>
-                    <tr class="bg-blue-100 text-blue-800">
+                    <tr class="bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-200">
                         <th class="px-4 py-2 text-left">Course</th>
                         <th class="px-4 py-2 text-left">Duration</th>
                         <th class="px-4 py-2 text-left">Tution Fees (Per Annum)</th>
@@ -145,11 +156,11 @@
             </table>
         </div>
         {% else %}
-        <div class="max-w-xl mx-auto mb-8 bg-white rounded shadow p-6">
-            <h3 class="text-xl font-semibold mb-4 text-blue-700">All Courses Fees</h3>
-            <table class="min-w-full bg-white rounded shadow">
+        <div class="max-w-xl mx-auto mb-8 bg-white dark:bg-gray-800 rounded shadow p-6">
+            <h3 class="text-xl font-semibold mb-4 text-blue-700 dark:text-blue-400">All Courses Fees</h3>
+            <table class="min-w-full bg-white dark:bg-gray-800 rounded shadow">
                 <thead>
-                    <tr class="bg-blue-100 text-blue-800">
+                    <tr class="bg-blue-100 dark:bg-gray-700 text-blue-800 dark:text-blue-200">
                         <th class="px-4 py-2 text-left">Course</th>
                         <th class="px-4 py-2 text-left">Duration</th>
                         <th class="px-4 py-2 text-left">Annual Fees (INR)</th>

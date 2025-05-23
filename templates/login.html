@@ -13,6 +13,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      transition: background 0.4s;
     }
 
     .login-card {
@@ -84,13 +85,56 @@
       text-decoration: underline;
       cursor: pointer;
     }
+
     .forgot-link:hover {
       opacity: 1;
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background: linear-gradient(135deg, #232526, #414345) !important;
+    }
+
+    body.dark-mode .login-card {
+      background: rgba(30, 30, 40, 0.95);
+      color: #f1f1f1;
+    }
+
+    body.dark-mode .login-card h3,
+    body.dark-mode .remember-me label,
+    body.dark-mode .forgot-link,
+    body.dark-mode .text-center,
+    body.dark-mode .form-control,
+    body.dark-mode .form-control::placeholder {
+      color: #f1f1f1 !important;
+    }
+
+    body.dark-mode .form-control {
+      background-color: rgba(40, 40, 60, 0.7);
+    }
+
+    body.dark-mode .btn-primary {
+      background-color: #8e2de2;
+    }
+
+    body.dark-mode .btn-primary:hover {
+      background-color: #4a00e0;
+    }
+
+    body.dark-mode .btn-secondary {
+      background-color: #444;
+      border-color: #444;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-
+  <!-- Dark mode toggle button -->
+  <div class="position-absolute top-0 end-0 m-3">
+    <button onclick="toggleDarkMode()" class="btn btn-outline-light btn-sm" style="background:rgba(0,0,0,0.2);">
+      <span id="darkModeIcon">🌙</span>
+    </button>
+  </div>
   <div class="login-card">
     <h3>Login</h3>
     <form action="{{ url_for('home') }}" method="POST" autocomplete="off">
@@ -118,7 +162,6 @@
       Hint: Username <b>admin</b> &amp; Password <b>admin</b>
     </p>
   </div>
-
   <script>
     // Toggle password visibility
     function togglePassword() {
@@ -130,6 +173,16 @@
       } else {
         pwd.type = "password";
         eye.innerHTML = '<path stroke="#fff" stroke-width="2" d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12Z"/><circle cx="12" cy="12" r="3" stroke="#fff" stroke-width="2"/>';
+      }
+    }
+    // Toggle dark mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const icon = document.getElementById('darkModeIcon');
+      if (document.body.classList.contains('dark-mode')) {
+        icon.textContent = '🌞';
+      } else {
+        icon.textContent = '🌙';
       }
     }
   </script>

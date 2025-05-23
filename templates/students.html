@@ -1,52 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Students</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
 </head>
-<body class="bg-purple-100">
+<body class="bg-purple-100 dark:bg-gray-900 min-h-screen text-gray-900 dark:text-gray-100">
     <div class="container mx-auto my-8">
+        <!-- Dark mode toggle button -->
+        <div class="flex justify-end mb-4">
+            <button onclick="toggleDarkMode()" class="px-3 py-1 rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                <span class="hidden dark:inline">🌞</span>
+                <span class="dark:hidden">🌙</span>
+            </button>
+        </div>
+
         <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-            <div class="mb-4">
+            <div class="mb-4" id="flash-messages">
                 {% for category, message in messages %}
-                <div class="p-4 mb-2 rounded shadow transition-all {{ 'bg-green-100 text-green-800' if category == 'success' else 'bg-red-100 text-red-800' }}">
+                <div class="p-4 mb-2 rounded shadow transition-all {{ 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' if category == 'success' else 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' }}">
                     {{ message }}
                 </div>
                 {% endfor %}
             </div>
+             <script>
+                setTimeout(function() {
+                    var flash = document.getElementById('flash-messages');
+                    if (flash) flash.style.display = 'none';
+                }, 5000);
+            </script>
         {% endif %}
         {% endwith %}
 
         <h1 class="text-3xl font-bold text-center mb-6">CRUD OPERATION</h1>
 
         <!-- Student Form -->
-        <div class="bg-white rounded shadow p-6 mb-6 transition hover:shadow-lg">
+        <div class="bg-white dark:bg-gray-800 rounded shadow p-6 mb-6 transition hover:shadow-lg">
             <h2 class="text-xl font-semibold mb-4">New Student Onboarding</h2>
-            <form action="/students" method="POST" class="space-y-4">
+            <form action="/students" method="POST" class="space-y-4" autocomplete="off">
                 <div>
                     <label for="name" class="block font-medium mb-1">Student Name</label>
                     <input type="text" name="name" id="name" required
-                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Enter student name">
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition dark:bg-gray-700 dark:border-gray-600" >
                 </div>
                 <div>
                     <label for="department" class="block font-medium mb-1">Department</label>
                     <input type="text" name="department" id="department" required
-                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Enter department">
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition dark:bg-gray-700 dark:border-gray-600">
                 </div>
                 <div>
                     <label for="reg_no" class="block font-medium mb-1">Registration Number</label>
                     <input type="text" name="reg_no" id="reg_no" required
-                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Enter registration number">
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition dark:bg-gray-700 dark:border-gray-600">
                 </div>
                 <div>
                     <label for="city" class="block font-medium mb-1">City</label>
                     <input type="text" name="city" id="city" required
-                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Enter city">
+                        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition dark:bg-gray-700 dark:border-gray-600">
                 </div>
                 <button type="submit"
                     class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Submit</button>
@@ -54,19 +74,19 @@
         </div>
 
         <!-- Search Bar -->
-        <div class="bg-white rounded shadow p-4 mb-6 transition hover:shadow-lg">
+        <div class="bg-white dark:bg-gray-800 rounded shadow p-4 mb-6 transition hover:shadow-lg">
             <form action="/students" method="GET" class="flex gap-2">
-                <input type="text" name="search" class="flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition" placeholder="Search by name" value="{{ request.args.get('search', '') }}">
+                <input type="text" name="search" class="flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition dark:bg-gray-700 dark:border-gray-600" placeholder="Search by name" value="{{ request.args.get('search', '') }}">
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Search</button>
             </form>
         </div>
 
         <!-- Student List -->
-        <div class="bg-white rounded shadow p-6 transition hover:shadow-lg">
+        <div class="bg-white dark:bg-gray-800 rounded shadow p-6 transition hover:shadow-lg">
             <h2 class="text-xl font-semibold mb-4">All Students</h2>
             <table class="min-w-full table-auto border-collapse">
                 <thead>
-                    <tr class="bg-gray-200">
+                    <tr class="bg-gray-200 dark:bg-gray-700">
                         <th class="px-4 py-2 text-left">Name</th>
                         <th class="px-4 py-2 text-left">Department</th>
                         <th class="px-4 py-2 text-left">Registration Number</th>
@@ -76,7 +96,7 @@
                 </thead>
                 <tbody>
                     {% for student in students %}
-                    <tr class="hover:bg-blue-50 transition">
+                    <tr class="hover:bg-blue-50 dark:hover:bg-gray-600 transition">
                         <td class="px-4 py-2">{{ student.name }}</td>
                         <td class="px-4 py-2">{{ student.department }}</td>
                         <td class="px-4 py-2">{{ student.reg_no }}</td>
@@ -96,122 +116,5 @@
             <a href="/" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 transition">Back to Home</a>
         </div>
     </div>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Hover effect for table rows */
-        tbody tr:hover {
-            background-color: #f1f1f1;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Hover effect for form inputs */
-        input.form-control:hover,
-        input.form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* Hover effect for buttons */
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004494;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background-color: #6c757d;
-            border-color: #5a6268;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Card hover effect */
-        .card:hover {
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-    </style>
-</head>
-<body>
-    <div class="container my-5">
-        <h1 class="text-center mb-4">CRUD OPERATION</h1>
-        
-        <!-- Student Form -->
-        <div class="card shadow-sm mb-4">
-            <div class="card-body">
-                <h5 class="card-title">New Student Onboarding</h5>
-                <form action="/students" method="POST">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Student Name</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter student name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="department" class="form-label">Department</label>
-                        <input type="text" class="form-control" name="department" id="department" placeholder="Enter department" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="reg_no" class="form-label">Registration Number</label>
-                        <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="Enter registration number" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" name="city" id="city" placeholder="Enter city" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="card shadow-sm mb-4">
-            <div class="card-body">
-                <form action="/students" method="GET" class="d-flex">
-                    <input type="text" name="search" class="form-control me-2" placeholder="Search by name" value="{{ request.args.get('search', '') }}">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Student List -->
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title">All Students</h5>
-                <table class="table table-bordered">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Registration Number</th>
-                            <th>City</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for student in students %}
-                        <tr>
-                            <td>{{ student.name }}</td>
-                            <td>{{ student.department }}</td>
-                            <td>{{ student.reg_no }}</td>
-                            <td>{{ student.city }}</td>
-                            <td>
-                                <a href="/students/update/{{ student.id }}" class="btn btn-warning btn-sm">Update</a>
-                                <a href="/students/delete/{{ student.id }}" class="btn btn-danger btn-sm">Delete</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Back to Home -->
-        <div class="text-center mt-4">
-            <a href="/" class="btn btn-secondary">Back to Home</a>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
